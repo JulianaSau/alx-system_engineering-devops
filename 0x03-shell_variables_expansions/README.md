@@ -1,4 +1,4 @@
-# Project 0x03 Shell, init files, variables and expansions
+# Project 0x03. Shell, init files, variables and expansions
 Learnt about alias builtin, help builtin, local, global and reserved variables (`PATH`, `HOME` and `PS1`), special parameters `$?` and single an double quotes in **Shell**.
 
 ## Learning Objectives
