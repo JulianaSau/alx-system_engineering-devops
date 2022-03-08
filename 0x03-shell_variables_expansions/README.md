@@ -1,5 +1,5 @@
 # Project 0x03 Shell, init files, variables and expansions
-Learnt about alias builtin, help builtin, local, global and reserved variables (PATH, HOME and PS1), special parameters `$?` and single an double quotes in **Shell**.
+Learnt about alias builtin, help builtin, local, global and reserved variables (`PATH`, `HOME` and `PS1`), special parameters `$?` and single an double quotes in **Shell**.
 
 ## Learning Objectives
 At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
@@ -45,13 +45,15 @@ At the end of this project, you are expected to be able to explain to anyone, wi
  - You are not allowed to use `&&`, `||` or `;`
  - You are not allowed to use `bc`, `sed` or `awk`
  - All your files must be executable
-
+ 
 ## Technologies
-* Scripts written in Bash 4.3.11(1)
-* Tested on Ubuntu 14.04 LTS
+| Technology | Details |
+| -------- | ----------- |
+| `Bash` | 5.0.17(1)-release |
+| `Ubuntu` | 20.04 LTS |
 
 ## Scripts
-The following scripts execute the given commands when run:
+The following describes what each script does when executed:
 
 | Filename | Description |
 | -------- | ----------- |
