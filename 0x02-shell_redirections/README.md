@@ -24,11 +24,13 @@ At the end of this project, you are expected to be able to explain to anyone, wi
   - What is the /etc/shadow file and what is its format
 
 ## Technologies
-* Scripts written in Bash 5.0.17(1)-release
-* Tested on Ubuntu 20.04 LTS
+| Technology | Details |
+| -------- | ----------- |
+| `Bash` | 5.0.17(1)-release |
+| `Ubuntu` | 20.04 LTS |
 
-## Files
-All of the following files are scripts:
+## Scripts
+The following describes what each script does when executed:
 
 | Filename | Description |
 | -------- | ----------- |
