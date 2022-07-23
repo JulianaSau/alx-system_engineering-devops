@@ -1,0 +1,6 @@
+i#!/usr/bin/env bash
+# displays string indefinity
+while true; do
+    echo "To infinity and beyond"
+    sleep 2
+done
