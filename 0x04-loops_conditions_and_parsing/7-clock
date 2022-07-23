@@ -1,15 +1,14 @@
 #!/usr/bin/env bash
-# CHINSESE UPERSITITITUOONSS
+# prints cloth things
 
-i=1
+hour=0
 
-while [ $i -lt 11 ]; do
-    if [ $i = 4 ]; then
-        echo "bad luck"
-    elif [ $i = 8 ]; then
-        echo "good luck"
-    else
-        echo "Best School"
-    fi
-    let i+=1
+while [ $hour -lt 13 ]; do
+    echo "Hour: $hour"
+    min=1
+    while [ $min -lt 60 ]; do
+        echo "$min"
+        [ $(( min+=1 )) -ne 0 ]
+    done
+     [ $(( hour+=1 )) -ne 0 ]
 done
