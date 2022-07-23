@@ -11,5 +11,5 @@ while [ $i -lt 11 ]; do
     else
         echo "Best School"
     fi
-    let i+=1
+    [ $(( i-=1 )) -ne 0 ]
 done
