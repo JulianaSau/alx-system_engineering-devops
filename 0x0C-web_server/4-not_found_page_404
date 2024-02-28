@@ -6,28 +6,42 @@
 # Configures /redirect_me as a "301 Moved Permanently".
 # Includes a custom 404 page containing "Ceci n'est pas une page".
 
-apt-get update
-apt-get install -y nginx
+#apt-get update
+#apt-get install -y nginx
 
-mkdir /etc/nginx/html
-touch /etc/nginx/html/index.html
-echo "Holberton School" > /etc/nginx/html/index.html
-touch /etc/nginx/html/404.html
-echo "Ceci n'est pas une page" > /etc/nginx/html/404.html
+#mkdir /etc/nginx/html
+#touch /etc/nginx/html/index.html
+#echo "Holberton School" > /etc/nginx/html/index.html
+#touch /etc/nginx/html/404.html
+#echo "Ceci n'est pas une page" > /etc/nginx/html/404.html
 
-printf %s "server {
-    listen 80;
-    listen [::]:80 default_server;
-    root   /etc/nginx/html;
-    index  index.html index.htm;
-    location /redirect_me {
-        return 301 http://cuberule.com/;
-    }
-    error_page 404 /404.html;
-    location /404 {
-      root /etc/nginx/html;
-      internal;
-    }
-}" > /etc/nginx/sites-available/default
+#printf %s "server {
+ #   listen 80;
+ #   listen [::]:80 default_server;
+ #   root   /etc/nginx/html;
+ #   index  index.html index.htm;
+ #   location /redirect_me {
+ #       return 301 http://cuberule.com/;
+ #   }
+ #   error_page 404 /404.html;
+ #   location /404 {
+ #     root /etc/nginx/html;
+ #     internal;
+ #   }
+#}" > /etc/nginx/sites-available/default
 
+#service nginx restart
+
+#!/usr/bin/env bash
+# Installs nginx and configures it with particular specifications
+apt-get update > /dev/null
+apt-get -y install nginx > /dev/null
+root_dir='/var/www/html'
+page_404='/custom_404.html'
+echo 'Hello World!' > $root_dir/index.nginx-debian.html
+echo "Ceci n'est pas une page" > $root_dir$page_404
+cfg_file='/etc/nginx/sites-enabled/default'
+sed -r -i 's|^(\tlisten [^0-9]*)[0-9]+|\180|' $cfg_file
+grep -q 'location /redirect_me' $cfg_file || sed -r -i 's|^(\tlocation /).*$|&\n\n\t\1redirect_me {\n\t\t\treturn 301 https://linkedin.com/in/shaker-sharabi/;\n\t\t}|' $cfg_file
+grep -q 'error_page 404' $cfg_file || sed -r -i "s|^\tlocation /.*$|\terror_page 404 ${page_404};\n\tlocation = ${page_404} {\n\t\troot ${root_dir};\n\t\tinternal;\n\t}\n\n&|" $cfg_file
 service nginx restart
