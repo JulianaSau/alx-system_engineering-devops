@@ -2,7 +2,9 @@
 # Script that installs Nginx server
 apt-get -y update
 apt-get -y install nginx
+
 # Configure nginx to listen on port 80
 sed -i 's/.*listen 80.*/listen 80;/g' /etc/nginx/sites-available/default
+ufw allow 'Nginx HTTP'
 echo "Hello World!" > /var/www/html/index.nginx-debian.html
 service nginx start
