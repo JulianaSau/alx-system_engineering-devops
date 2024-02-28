@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 #  configure it to our needs so that you can connect to a server without typing a password
 
-Host 44.192.44.219
-    IdentityFile ~/.ssh/school
-    IdentitiesOnly yes
+Host 'web-01'
+	HostName 34.227.91.195
+	User ubuntu
+	PubkeyAuthentication yes
+	IdentityFile ~/.ssh/school
+	PasswordAuthentication no
