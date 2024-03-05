@@ -7,7 +7,7 @@ service nginx start
 
 # Initialize variables
 cfg_file='/etc/nginx/sites-enabled/default'
-header_line="    add_header X-Served-By \$hostname;"
+header_line='    add_header X-Served-By $hostname;'
 
 # Configure index page
 echo 'Hello World!' > /var/www/html/index.nginx-debian.html
@@ -15,8 +15,8 @@ echo 'Hello World!' > /var/www/html/index.nginx-debian.html
 # Update server to listen on default port 80
 sed -r -i 's|^(\tlisten [^0-9]*)[0-9]+|\180|' $cfg_file
 
-# Add the header line to the configuration file within the server block
-sed -i "/^\s*server\s*{/,/^\s*}/ { /^\s*server\s*{/ { n; $ { /.*server.*{/! i $header_line; } } }" $cfg_file
+# Add the header line to the configuration file
+sed -i "/^\s*location\s*\/\s*{/a $header_line" $cfg_file
 
 service nginx reload
 
