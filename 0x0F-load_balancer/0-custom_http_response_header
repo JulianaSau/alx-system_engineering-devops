@@ -5,24 +5,15 @@ apt-get update
 apt-get -y install nginx
 service nginx start
 
-# Initialize variables 
-root_dir='/var/www/html'
+# Initialize variables
 cfg_file='/etc/nginx/sites-enabled/default'
-page_404='/custom_404.html'
 header_line='    add_header X-Served-By $hostname;'
 
 # Configure index page
-echo 'Hello World!' > $root_dir/index.nginx-debian.html
-
-# Configure custom 404 page
-echo "Ceci n'est pas une page" > $root_dir$page_404
+echo 'Hello World!' > /var/www/html/index.nginx-debian.html
 
 # Update server to listen on default port 80
 sed -r -i 's|^(\tlisten [^0-9]*)[0-9]+|\180|' $cfg_file
-grep -q 'error_page 404' $cfg_file || sed -r -i "s|^\tlocation /.*$|\terror_page 404 ${page_404};\n\tlocation = ${page_404} {\n\t\troot ${root_dir};\n\t\tinternal;\n\t}\n\n&|" $cfg_file
-
-# Configure redirect page
-grep -q 'location /redirect_me' $cfg_file || sed -r -i 's|^(\tlocation /).*$|&\n\n\t\1redirect_me {\n\t\t\treturn 301 https://linkedin.com/in/shaker-sharabi/;\n\t\t}|' $cfg_file
 
 # Add the header line to the configuration file
 sed -i "/^\s*location\s*\/\s*{/a $header_line" $cfg_file
