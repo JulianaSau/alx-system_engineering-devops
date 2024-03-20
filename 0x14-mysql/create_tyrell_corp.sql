@@ -19,3 +19,5 @@ INSERT INTO nexus6 (name, model) VALUES ('Nexus 6', 'Replicant');
 
 -- Grant SELECT permissions on the nexus6 table to the holberton_user
 GRANT SELECT ON tyrell_corp.nexus6 TO 'holberton_user'@'localhost';
+
+FLUSH PRIVILEGES;
