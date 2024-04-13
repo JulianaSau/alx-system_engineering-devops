@@ -11,7 +11,7 @@ def number_of_subscribers(subreddit):
     Args:
         subreddit(str) - The name of the subreddit to check the no of subs
     '''
-    url = "https://old.reddit.com/r/{}/about.json".format(subreddit)
+    url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
     headers = {'User-Agent': 'aUserAgent'}
 
     response = requests.get(url, headers=headers, allow_redirects=False)
