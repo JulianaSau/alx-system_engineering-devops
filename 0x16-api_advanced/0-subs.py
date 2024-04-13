@@ -12,7 +12,7 @@ def number_of_subscribers(subreddit):
         subreddit(str) - The name of the subreddit to check the no of subs
     '''
     url = "https://www.reddit.com/r/{}/about.json".format(subreddit)
-    headers = {'User-Agent': 'android:com.example.myredditapp:v1.2.3 (by /u/kemitche)'}
+    headers = {'User-Agent': 'aUserAgent'}
 
     response = requests.get(url, headers=headers, allow_redirects=False)
 
