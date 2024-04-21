@@ -37,5 +37,6 @@ sudo chmod 666 /tmp/airbnb-access.log
 sudo chmod 666 /tmp/airbnb-error.log
 sudo systemctl daemon-reload
 sudo systemctl start gunicorn
+sudo systemctl enable gunicorn
 sudo systemctl status gunicorn
 ```
