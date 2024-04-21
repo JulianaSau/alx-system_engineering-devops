@@ -29,3 +29,13 @@ Resources
 - [http://blog.pixelastic.com/2013/09/27/understanding-nginx-location-blocks-rewrite-rules/](http://blog.pixelastic.com/2013/09/27/understanding-nginx-location-blocks-rewrite-rules/)
 - [https://www.digitalocean.com/community/tutorials/understanding-nginx-server-and-location-block-selection-algorithms#matching-location-blocks](https://www.digitalocean.com/community/tutorials/understanding-nginx-server-and-location-block-selection-algorithms#matching-location-blocks)
 - [https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/#](https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/#)
+
+- How to deal with the gunicorn.service file
+- If you are having challenge restarting your gunicorn after the gunicorn.service set up you did. Kindly execute these commands and you are good to go.
+```bash
+sudo chmod 666 /tmp/airbnb-access.log
+sudo chmod 666 /tmp/airbnb-error.log
+sudo systemctl daemon-reload
+sudo systemctl start gunicorn
+sudo systemctl status gunicorn
+```
